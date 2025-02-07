@@ -1,78 +1,81 @@
--- AppleScript to create more folders & files for three different personas
--- Each persona has at least 6 folders and 18 files on the Desktop.
+-- AppleScript to create folders & files for three distinct personas on the Desktop.
+-- Each persona has at least 6 folders and 18 files.
 
--- 1) Choose Persona
-set personaList to {"Creative Professional", "Corporate Professional", "Student / Researcher"}
-set chosenPersona to (choose from list personaList with prompt "Which persona do you want to simulate?") as text
+-- 1) Ask which persona to simulate
+set personaList to {"Music Producer", "Freelance Web Developer", "Digital Marketer"}
+set chosenPersona to (choose from list personaList with prompt "Which persona do you want to simulate on your Desktop?") as text
 
--- 2) Define folders and files for each persona
-if chosenPersona is "Creative Professional" then
-    set folderNames to {"Client_Projects", "Video_Editing", "Moodboards", "Photography", "Social_Media_Assets", "BrandAssets"}
+-- 2) Define the folders and files for each persona
+if chosenPersona is "Music Producer" then
+    
+    set folderNames to {"Projects", "Samples", "Mixdowns", "Collaborations", "Mastered_Tracks", "Promos"}
     set fileNames to {¬
-        "BrandGuidelines_v3.pdf", ¬
-        "LogoConcepts.ai", ¬
-        "Storyboard_Sketches_v2.psd", ¬
-        "Portfolio_2025_vFinal.indd", ¬
-        "ClientA_Promo_Clip.mp4", ¬
-        "SocialCampaign_Post1.jpg", ¬
-        "SocialCampaign_Post2.jpg", ¬
-        "Moodboard_Colors.jpg", ¬
-        "Moodboard_Texture.png", ¬
-        "Photography_Showcase1.jpg", ¬
-        "Photography_Showcase2.jpg", ¬
-        "Animated_Intro.mov", ¬
-        "ColorPalette_Final.ase", ¬
-        "InspirationQuotes.txt", ¬
-        "Artwork_Collage1.psd", ¬
-        "MotionGraphics_Test.aep", ¬
-        "BrandingProposal_ClientB.pdf", ¬
-        "EditingWorkflow_Checklist.md" ¬
+        "Beat_Concept1.wav", ¬
+        "Beat_Concept2.wav", ¬
+        "FinalMix_TrackA.mp3", ¬
+        "Guitar_RiffV1.aif", ¬
+        "Vocal_Recording_SingerA.wav", ¬
+        "Vocal_Recording_SingerB.wav", ¬
+        "MasteredSong_EP1.mp3", ¬
+        "MasteredSong_EP2.mp3", ¬
+        "Collab_ProducerX_SongDraft.flp", ¬
+        "Collab_ProducerX_SongDraft2.flp", ¬
+        "DrumLoopKit.zip", ¬
+        "Bassline_Tracks.mid", ¬
+        "PromoSnippet1.mp4", ¬
+        "PromoSnippet2.mp4", ¬
+        "LyricSheet_TrackA.txt", ¬
+        "LyricSheet_TrackB.txt", ¬
+        "Contract_Studio2025.pdf", ¬
+        "ReleasePlan_Single2025.docx" ¬
     }
 
-else if chosenPersona is "Corporate Professional" then
-    set folderNames to {"Finance", "Q1_Reports", "Client_Contracts", "HR_Documents", "Marketing", "Operations"}
+else if chosenPersona is "Freelance Web Developer" then
+    
+    set folderNames to {"Clients", "Templates", "Assets", "Deployments", "Documentation", "Testing"}
     set fileNames to {¬
-        "Meeting_Notes_Jan.docx", ¬
-        "Meeting_Notes_Feb.docx", ¬
-        "Meeting_Notes_Mar.docx", ¬
-        "Quarterly_Budget.xlsx", ¬
-        "Annual_Budget_Projection.xlsx", ¬
-        "ClientProposal_ABC.pdf", ¬
-        "Team_Roster_2025.xlsx", ¬
-        "Monthly_Sales_Update.pptx", ¬
-        "Strategy_Plan_2025.pptx", ¬
-        "Employee_Handbook.pdf", ¬
-        "HR_Policies_Update.docx", ¬
-        "Performance_Review_Template.docx", ¬
-        "Contract_Template.docx", ¬
-        "NonDisclosureAgreement_ClientZ.pdf", ¬
-        "Marketing_Calendar.xlsx", ¬
-        "Competitive_Analysis_Q1.pdf", ¬
-        "Product_Pricing_Model.xlsx", ¬
-        "Sales_Call_Script.docx" ¬
+        "index_homepage.html", ¬
+        "contact_us.html", ¬
+        "style_global.css", ¬
+        "style_theme_dark.css", ¬
+        "script_main.js", ¬
+        "script_validation.js", ¬
+        "client_A_wireframe.pdf", ¬
+        "client_B_siteplan.docx", ¬
+        "landing_page_template.html", ¬
+        "react_app_build.zip", ¬
+        "deployment_notes_prod.txt", ¬
+        "testing_log_jan2025.xlsx", ¬
+        "api_documentation_endpoints.md", ¬
+        "security_audit_report.pdf", ¬
+        "favicon_assets.zip", ¬
+        "package.json", ¬
+        "readme_projectA.md", ¬
+        "dev_operations_checklist.xlsx" ¬
     }
 
-else if chosenPersona is "Student / Researcher" then
-    set folderNames to {"Assignments", "Research_Papers", "Lecture_Notes", "Thesis_Work", "Lab_Results", "Group_Projects"}
+else if chosenPersona is "Digital Marketer" then
+    
+    set folderNames to {"Campaigns", "Analytics", "ContentCalendar", "SocialMedia", "EmailMarketing", "SEO"}
     set fileNames to {¬
-        "LectureNotes_2025-01-15.pdf", ¬
-        "LectureNotes_2025-01-22.pdf", ¬
-        "LectureNotes_2025-01-29.pdf", ¬
-        "ResearchBibliography.bib", ¬
-        "Thesis_Outline.docx", ¬
-        "Lab_DataAnalysis.xlsx", ¬
-        "ProjectPresentation.pptx", ¬
-        "LiteratureReviewDraft.docx", ¬
-        "Experiment_Results2025.csv", ¬
-        "Abstract_Submission.pdf", ¬
-        "Thesis_Proposal_Chapter1.docx", ¬
-        "Thesis_Proposal_Chapter2.docx", ¬
-        "CourseSyllabus_Spring2025.pdf", ¬
-        "PeerReviewComments.docx", ¬
-        "Study_Guide_FinalExam.pdf", ¬
-        "Collaboration_Notes_GroupB.md", ¬
-        "BookReview_MachineLearning.docx", ¬
-        "SPSS_DataSet2025.sav" ¬
+        "CampaignPlan_Q1_2025.docx", ¬
+        "CampaignBudget_Q1_2025.xlsx", ¬
+        "AnalyticsReport_Jan2025.pdf", ¬
+        "CustomerPersonaGuides.pdf", ¬
+        "ContentCalendar_Feb2025.xlsx", ¬
+        "SocialMediaPosts_Feb2025.docx", ¬
+        "AdCreative_Instagram.png", ¬
+        "AdCreative_Facebook.png", ¬
+        "Newsletter_Template.html", ¬
+        "EmailCampaign_Feb2025.csv", ¬
+        "Keyword_Research_2025.xlsx", ¬
+        "SEO_Audit_ClientX.pdf", ¬
+        "SEO_BacklinksReport.csv", ¬
+        "Website_TrafficAnalysis.pptx", ¬
+        "MarketingPitch_Deck.pdf", ¬
+        "CompetitorAnalysis_Jan2025.docx", ¬
+        "Influencer_Collaboration_Plan.xlsx", ¬
+        "WeeklyTracking_Sheet.docx" ¬
     }
 
 else
@@ -80,22 +83,22 @@ else
     return
 end if
 
--- 3) Create folders and files on Desktop
+-- 3) Create the folders and files on the Desktop
 tell application "Finder"
     set desktopFolder to path to desktop folder
     
-    -- Create the persona-specific folders
-    repeat with fName in folderNames
-        if not (exists folder fName of desktopFolder) then
-            make new folder at desktopFolder with properties {name:fName}
+    -- Create persona-specific folders
+    repeat with folderName in folderNames
+        if not (exists folder folderName of desktopFolder) then
+            make new folder at desktopFolder with properties {name:folderName}
         end if
     end repeat
     
-    -- Create files (0-byte placeholders)
-    repeat with docName in fileNames
-        do shell script "touch " & quoted form of (POSIX path of desktopFolder) & docName
+    -- Create 0-byte placeholder files on the Desktop
+    repeat with thisFile in fileNames
+        do shell script "touch " & quoted form of (POSIX path of desktopFolder) & thisFile
     end repeat
 end tell
 
--- 4) Confirmation
-display dialog ("Done! You are now simulating the " & chosenPersona & " persona with folders and files on your Desktop.") buttons {"OK"} default button 1
+-- 4) Confirmation dialog
+display dialog ("Done! You are now simulating the " & chosenPersona & " persona with new folders and files on your Desktop.") buttons {"OK"} default button 1
